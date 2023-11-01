@@ -124,7 +124,11 @@ ExternalIgnoreList	refile:<%= @file_trustedHosts %>
 <% end -%>
 
 ##  Identifies a set "internal" hosts whose mail should be signed rather than verified.
+<% if @file_trustedHosts.nil? -%>
 # InternalHosts	refile:/etc/opendkim/TrustedHosts
+<% else -%>
+InternalHosts   refile:/etc/opendkim/TrustedHosts
+<% end -%>
 
 ##  Contains a list of IP addresses, CIDR blocks, hostnames or domain names
 ##  whose mail should be neither signed nor verified by this filter.  See man
