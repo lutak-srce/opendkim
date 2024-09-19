@@ -32,13 +32,6 @@ class opendkim (
   $noops                        = undef,
   ) inherits opendkim::params {  
 
-  ### Input parameters validation
-  validate_re($ensure, ['present','absent'], 'Valid values are: present, absent')
-  validate_string($package)
-  validate_string($version)
-  validate_string($service)
-  validate_re($status,  ['enabled','disabled','running','stopped','activated','deactivated','unmanaged'], 'Valid values are: enabled, disabled, running, stopped, activated, deactivated and unmanaged')
-
   ### Internal variables (that map class parameters)
   if $ensure == 'present' {
     $package_ensure = $version ? {
