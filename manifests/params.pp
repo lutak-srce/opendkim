@@ -22,7 +22,7 @@ class opendkim::params {
       $package               = 'opendkim'
       $service               = 'opendkim'
       $file_opendkimconf     = '/etc/opendkim.conf'
-      $template_opendkimconf = 'opendkim/opendkim.conf.erb'
+      $template_opendkimconf = "opendkim/opendkim.el${facts['os']['release']['major']}.conf.erb"
       $file_keyTable         = '/etc/opendkim/KeyTable'
       $template_keyTable     = 'opendkim/KeyTable.erb'
       $file_signingTable     = '/etc/opendkim/SigningTable'
